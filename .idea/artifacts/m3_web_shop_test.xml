@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="m3-web-shop-test">
+    <output-path>$PROJECT_DIR$/out/artifacts/m3_web_shop_test</output-path>
+    <root id="root">
+      <element id="archive" name="m3_web_shop_test.jar">
+        <element id="module-output" name="m3-web-shop-test" />
+      </element>
+    </root>
+  </artifact>
+</component>
