@@ -1,48 +1,58 @@
 package service.impl;
 
+import dao.Impl.ProductDaoImpl;
+import dao.ProductDao;
 import model.Product;
 import service.ProductService;
 
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
+    ProductDao productDao = new ProductDaoImpl();
+
     @Override
     public void insert(Product product) {
-
+        productDao.insert(product);
     }
 
     @Override
     public void edit(Product product) {
-
+        Product product1 = productDao.get(product.getId());
+        product1.setName(product.getName());
+        product1.setPrice(product.getPrice());
+        product1.setCategory(product.getCategory());
+        product1.setDes(product.getDes());
+        product1.setImage(product.getImage());
+        productDao.edit(product1);
     }
 
     @Override
     public void delete(int id) {
-
+        productDao.delete(id);
     }
 
     @Override
     public Product get(int id) {
-        return null;
+        return productDao.get(id);
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        return productDao.getAll();
     }
 
     @Override
     public List<Product> search(String username) {
-        return null;
+        return productDao.search(username);
     }
 
     @Override
     public List<Product> searchByCategory(int cate_id) {
-        return null;
+        return productDao.seachByCategory(cate_id);
     }
 
     @Override
     public List<Product> searchByName(String productName) {
-        return null;
+        return productDao.seachByName(productName);
     }
 }

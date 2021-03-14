@@ -1,6 +1,6 @@
-package DAO.Impl;
+package dao.Impl;
 
-import DAO.CartDao;
+import dao.CartDao;
 import model.Cart;
 
 import java.util.List;

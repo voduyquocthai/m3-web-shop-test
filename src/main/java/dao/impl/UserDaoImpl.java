@@ -1,4 +1,4 @@
-package dao.impl;
+package dao.Impl;
 
 import dao.UserDao;
 import model.User;
@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(User user) {
+    public void delete(int id) {
 
     }
 
