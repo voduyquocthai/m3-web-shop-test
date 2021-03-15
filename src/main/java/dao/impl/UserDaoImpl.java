@@ -1,4 +1,4 @@
-package dao.impl;
+package dao.Impl;
 
 import dao.UserDao;
 import jdbc.JDBCConnection;
@@ -54,6 +54,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void delete(int id) {
+
         String sql = "DELETE FROM User WHERE id = ?";
 
         try (
