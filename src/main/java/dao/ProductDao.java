@@ -15,7 +15,7 @@ public interface ProductDao {
 
     List<Product> getAll();
 
-    List<Product> search(String username);
+    List<Product> search(String keyword);
 
     List<Product> searchByCategory(int cate_id);
 

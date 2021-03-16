@@ -5,14 +5,18 @@ import dao.ProductDao;
 import jdbc.JDBCConnection;
 import model.Category;
 import model.Product;
+import service.CategoryService;
+import service.impl.CategoryServiceImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
+    CategoryService categoryService = new CategoryServiceImpl();
     @Override
     public void insert(Product product) {
         String sql = "INSERT INTO Product ( name, price, cate_id, des, image ) VALUES ( ? , ? , ? , ? ,?)";
@@ -74,40 +78,144 @@ public class ProductDaoImpl implements ProductDao {
         String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.name AS c_name, category.id AS c_id " +
                 " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE product.id = ? ";
 
-
         try(
                 Connection con = JDBCConnection.getJDBCConnection();
-                PreparedStatement ps = con.prepareStatement(sql);
+                PreparedStatement ps = con.prepareStatement(sql)
                 ){
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
                 Product product = new Product();
-
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("img"));
+                product.setCategory(category);
+                return product;
             }
 
         } catch (SQLException e){
             e.printStackTrace();
         }
+        return null;
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.name AS c_name, category.id AS c_id " +
+                " FROM Product INNER JOIN Category ON product.cate_id = category.id";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+                ){
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("img"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
     }
 
     @Override
-    public List<Product> search(String username) {
-        return null;
+    public List<Product> search(String keyword) {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM Product WHERE name LIKE ?";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+
+        ){
+            ps.setString(1, "%" + keyword + "%");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("img"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
     }
 
     @Override
     public List<Product> searchByCategory(int cate_id) {
-        return null;
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.id AS c_id " +
+                " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE c_id = ? ";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+
+        ){
+            ps.setInt(1, cate_id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("img"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
     }
 
     @Override
     public List<Product> searchByName(String product_name_keyword) {
-        return null;
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.id AS c_id " +
+                " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE Product.name LIKE ? ";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+
+        ){
+            ps.setString(1, "%" + product_name_keyword + "%");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("img"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
     }
 }
