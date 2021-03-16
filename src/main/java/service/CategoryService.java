@@ -1,10 +1,10 @@
-package dao;
+package service;
 
 import model.Category;
 
 import java.util.List;
 
-public interface CategoryDao {
+public interface CategoryService {
     void insert(Category category);
 
     void edit(Category category);
@@ -17,5 +17,5 @@ public interface CategoryDao {
 
     List<Category> getAll();
 
-    List<Category> search(String cate_name);
+    List<Category> search(String username);
 }

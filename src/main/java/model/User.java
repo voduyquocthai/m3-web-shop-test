@@ -1,6 +1,7 @@
 package model;
 
 public class User {
+
     private int id;
     private String username;
     private String password;
@@ -9,6 +10,12 @@ public class User {
     private int roleId; // 1: admin - 0 : users
 
     public User() {
+    }
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public User(int id, String username, String password, String email, String avatar, int roleId) {

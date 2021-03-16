@@ -1,6 +1,7 @@
 package model;
 
 public class CartItem {
+
     private String id;
     private int quantity;
     private float unitPrice;

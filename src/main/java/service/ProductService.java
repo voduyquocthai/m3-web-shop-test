@@ -1,10 +1,10 @@
-package dao;
+package service;
 
 import model.Product;
 
 import java.util.List;
 
-public interface ProductDao {
+public interface ProductService {
     void insert(Product product);
 
     void edit(Product product);
@@ -15,9 +15,9 @@ public interface ProductDao {
 
     List<Product> getAll();
 
-    List<Product> search(String keyword);
+    List<Product> search(String username);
 
     List<Product> searchByCategory(int cate_id);
 
-    List<Product> searchByName(String product_name_keyword);
+    List<Product> searchByName(String productName);
 }

@@ -1,10 +1,10 @@
-package dao;
+package service;
 
 import model.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserService {
     void insert(User user);
 
     void edit(User user);
@@ -14,6 +14,10 @@ public interface UserDao {
     User get(String username);
 
     User get(int id);
+
+    User login(String username, String password);
+
+    boolean register(String email, String password, String username);
 
     List<User> getAll();
 
