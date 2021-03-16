@@ -17,5 +17,5 @@ public interface CategoryDao {
 
     List<Category> getAll();
 
-    List<Category> search(String username);
+    List<Category> search(String cate_name);
 }
