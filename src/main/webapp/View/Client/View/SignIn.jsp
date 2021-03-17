@@ -28,6 +28,7 @@
                             <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
                             <div class="hr"></div>
                             <div class="foot"> <a href="#">Forgot Password?</a> </div>
+                            <div style="margin-top: 50px" class="foot"> <a href="Index.jsp"><--Back</a> </div>
                         </div>
                         <div class="sign-up-form">
                             <div class="group"> <label for="user" class="label">Username</label> <input id="user1" type="text" class="input" placeholder="Create your Username"> </div>

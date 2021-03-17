@@ -1,12 +1,10 @@
 package service.impl;
 
 import dao.CartDao;
-import dao.CategoryDao;
 import dao.impl.CartDaoImpl;
-import dao.impl.CategoryDaoImpl;
 import model.Cart;
 import service.CartService;
-import service.CategoryService;
+
 
 import java.util.List;
 

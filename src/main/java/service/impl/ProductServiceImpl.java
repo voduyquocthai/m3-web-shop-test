@@ -1,7 +1,8 @@
 package service.impl;
 
-import dao.impl.ProductDaoImpl;
+
 import dao.ProductDao;
+import dao.impl.ProductDaoImpl;
 import model.Product;
 import service.ProductService;
 
