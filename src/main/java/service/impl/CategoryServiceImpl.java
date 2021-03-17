@@ -1,7 +1,7 @@
 package service.impl;
 
 import dao.CategoryDao;
-import dao.Impl.CategoryDaoImpl;
+import dao.impl.CategoryDaoImpl;
 import model.Category;
 import service.CategoryService;
 
