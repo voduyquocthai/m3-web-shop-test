@@ -37,6 +37,7 @@ public class CartItemDaoImpl implements CartItemDao {
         }
     }
 
+
     @Override
     public void edit(CartItem cartItem) {
         String sql = "UPDATE CartItem SET cat_id = ?, pro_id = ?, quantity = ?, unitPrice=? WHERE id = ?";
@@ -56,6 +57,7 @@ public class CartItemDaoImpl implements CartItemDao {
 
     @Override
     public void delete(String id) {
+
         String sql = "DELETE FROM CartItem WHERE id = ?";
         Connection con = JDBCConnection.getJDBCConnection();
         try {
@@ -190,5 +192,5 @@ public class CartItemDaoImpl implements CartItemDao {
         }
 
         return cartItemList;
-    }
+}
 }
