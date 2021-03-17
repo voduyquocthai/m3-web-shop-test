@@ -19,7 +19,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminController", value = "/AdminController")
+@WebServlet(name = "AdminController", urlPatterns = "/login/admin")
 public class AdminController extends HttpServlet {
     CategoryService categoryService = new CategoryServiceImpl();
     CartItemService cartItemService = new CartItemServiceImpl();
