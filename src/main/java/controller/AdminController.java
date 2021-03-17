@@ -28,7 +28,11 @@ public class AdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String action = request.getParameter("ac");
+        if(action == null){
+            action = "";
+        }
         switch (action) {
             case "add_cate":
                 showFormAddCate(request, response);
@@ -41,9 +45,6 @@ public class AdminController extends HttpServlet {
                 break;
             case "list_cate":
                 showAllCategory(request, response);
-                break;
-            case "dashboard":
-                showDashboard(request, response);
                 break;
             case "order_delete":
                 deleteOrder(request, response);
@@ -74,6 +75,9 @@ public class AdminController extends HttpServlet {
                 break;
             case "list_user":
                 showAllUser(request,response);
+                break;
+            default:
+                showDashboard(request, response);
                 break;
         }
     }

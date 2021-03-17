@@ -50,7 +50,7 @@ service/impl/ProductServiceImpl.java
  service.impl.ProductServiceImpl
 dao/CartDao.java
  dao.CartDao
-controller/AdminController.java
- controller.AdminController
 dao/impl/CartItemDaoImpl.java
  dao.impl.CartItemDaoImpl
+controller/AdminController.java
+ controller.AdminController
