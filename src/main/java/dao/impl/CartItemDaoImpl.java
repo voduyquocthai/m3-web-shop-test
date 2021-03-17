@@ -1,7 +1,6 @@
 package dao.impl;
 
-import dao.CartItemDao;
-import dao.UserDao;
+import dao.*;
 import jdbc.JDBCConnection;
 import model.Cart;
 import model.CartItem;
@@ -55,9 +54,10 @@ public class CartItemDaoImpl implements CartItemDao {
         }
     }
 
-    @Override
-    public void delete(String id) {
 
+
+        @Override
+        public void delete(String id){
         String sql = "DELETE FROM CartItem WHERE id = ?";
         Connection con = JDBCConnection.getJDBCConnection();
         try {

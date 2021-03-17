@@ -1,15 +1,19 @@
 package dao.impl;
 
 import dao.CartDao;
-import jdbc.JDBCConnection;
+
 import model.Cart;
+
+import java.util.List;
+
+
+import jdbc.JDBCConnection;
 import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CartDaoImpl implements CartDao {
     UserService userService = new UserServiceImpl();

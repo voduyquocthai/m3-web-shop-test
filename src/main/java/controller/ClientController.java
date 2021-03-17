@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ClientController", urlPatterns = "/login/user")
+@WebServlet(name = "ClientController", urlPatterns = "/user")
 public class ClientController extends HttpServlet {
     CartService cartService = new CartServiceImpl();
     CartItemService cartItemService = new CartItemServiceImpl();
@@ -21,7 +21,9 @@ public class ClientController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("ac");
-        switch (action) {
+        switch (action){
+            case "home":
+                showHomePage(request, response);
             case "addItem":
                 addProductIntoCart(request, response);
                 break;
@@ -208,4 +210,9 @@ public class ClientController extends HttpServlet {
             request.getRequestDispatcher("").forward(request, response);
         }
     }
+
+    private void showHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendRedirect("View/Client/View/Index.jsp");
+    }
+
 }

@@ -77,152 +77,47 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
-                            dashboard
+                            person
                         </i>
                         <span class="text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
-                        <span class="text">User Profile</span>
+                        <span class="text">User Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="admin?ac=list_product" class="nav-link px-2">
                         <i class="material-icons icon"> insert_chart </i
-                        ><span class="text">Charts</span></a
-                    >
+                        ><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
-                        <span class="text">Settings</span>
+                        <span class="text">Order Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
-                        <i class="material-icons icon">
-                            pages
-                        </i>
-                        <span class="text">Pages</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="admin?ac=list_category" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
-                        <span class="text">Demo</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2 sideMenuToggler">
-                        <i class="material-icons icon expandView ">
-                            view_list
-                        </i>
-                        <span class="text">Resize</span>
+                        <span class="text">Category Management</span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="content">
-        <div class="container">
-        <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-3">
-                    <div style="margin-top: 20px" class="input-group">
-                        <input style="width: 70%" type="search" class="form-control rounded" placeholder="Search"
-                               aria-label="Search"
-                               aria-describedby="search-addon"/>
-                        <button style="width: 30%" type="button" class="btn btn-outline-primary">search</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-3"><a style="float: right ; margin-top: 35px" class="btn btn-warning" href="AddUser.jsp">Add new member</a> </div>
-            </div>
-            <div style="margin-top: 20px" class="row">
-                <table style="margin-top: 50px ; color: black" class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"><input type="checkbox" value=""></th>
-                        <th scope="col">ID</th>
-                        <th scope="col">Action</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">PassWord</th>
-                    </tr>
-                    </thead>
-                    <c:forEach items='${requestScope["customers"]}' var="customer">
-                        <tbody>
-                        <tr>
-                            <th scope="row" > + </th>
-                            <td><input type="checkbox" value=""></th></td>
-                            <td>${customer.getId()}</td>
-                            <td><a class="btn btn-primary" href="EditUser.jsp">Edit
-                                <span style="float: left" class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                            </a>
-                                <a class="btn btn-danger" href="customer?action=delete&id=${customer.getId()}">Delete
-                                    <span style="float: left" class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </a></td>
-                            <td>${customer.getName()}</td>
-                            <td>${customer.getUsername()}</td>
-                            <td>${customer.getEmail()}</td>
-                            <td>${customer.getAddress()}</td>
-                        </tr>
-                        </tbody></c:forEach>
-                </table>
-            </div>
-            <div class="row">
-                <div style="margin-top: 25px" class="col-md-3">
-                    Showing 0 to 0 of 0 entries
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-8">
-                    <div class="col-md-4"></div>
-                    <div style="margin-top: 25px ; float: right" class="col-md-3"> Show
-                        <select class="selectpicker">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                        <span>Entries</span>
-                    </div>
-                    <div style="float: right ; margin-top: 17px" class="col-md-5">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 </div>
 </div>
 <script
@@ -240,5 +135,6 @@
         integrity="sha256-qE/6vdSYzQu9lgosKxhFplETvWvqAAlmAuR+yPh/0SI="
         crossorigin="anonymous"
 ></script>
+    </div>
 </body>
 </html>
