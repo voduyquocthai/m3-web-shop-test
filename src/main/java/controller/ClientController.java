@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ClientController", value = "/ClientController")
+@WebServlet(name = "ClientController", urlPatterns = "/login/user")
 public class ClientController extends HttpServlet {
     CartService cartService = new CartServiceImpl();
     CartItemService cartItemService = new CartItemServiceImpl();
