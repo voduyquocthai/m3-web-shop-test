@@ -2,8 +2,8 @@ package service.impl;
 
 import dao.CartDao;
 import dao.CategoryDao;
-import dao.Impl.CartDaoImpl;
-import dao.Impl.CategoryDaoImpl;
+import dao.impl.CartDaoImpl;
+import dao.impl.CategoryDaoImpl;
 import model.Cart;
 import service.CartService;
 import service.CategoryService;
