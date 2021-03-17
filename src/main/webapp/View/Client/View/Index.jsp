@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-1"></div>
         <div style="margin-top: 46px " class="col-md-3">
-            <a style="float: right" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
+            <a style="" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
         </div>
     </div>
     <div class="row">
