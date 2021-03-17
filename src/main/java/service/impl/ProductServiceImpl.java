@@ -1,6 +1,6 @@
 package service.impl;
 
-import dao.Impl.ProductDaoImpl;
+import dao.impl.ProductDaoImpl;
 import dao.ProductDao;
 import model.Product;
 import service.ProductService;
@@ -48,11 +48,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> searchByCategory(int cate_id) {
-        return productDao.seachByCategory(cate_id);
+        return productDao.searchByCategory(cate_id);
     }
 
     @Override
     public List<Product> searchByName(String productName) {
-        return productDao.seachByName(productName);
+        return productDao.searchByName(productName);
     }
 }

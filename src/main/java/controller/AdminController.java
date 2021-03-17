@@ -19,7 +19,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminController", urlPatterns = "/login/admin")
+@WebServlet(name = "AdminController", urlPatterns = "/admin")
 public class AdminController extends HttpServlet {
     CategoryService categoryService = new CategoryServiceImpl();
     CartItemService cartItemService = new CartItemServiceImpl();
@@ -81,7 +81,7 @@ public class AdminController extends HttpServlet {
     private void showAllUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = userService.getAll();
         request.setAttribute("userList",userList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/ListUser.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -99,7 +99,7 @@ public class AdminController extends HttpServlet {
     }
 
     private void showFormAddUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("");
+        response.sendRedirect("View/Admin/View/AddUser.jsp");
     }
 
     private void showAllProductList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -144,7 +144,7 @@ public class AdminController extends HttpServlet {
     }
 
     private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/Index.jsp");
         dispatcher.forward(request, response);
     }
 
