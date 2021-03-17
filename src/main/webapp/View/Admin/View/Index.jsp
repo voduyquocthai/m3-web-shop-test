@@ -161,7 +161,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Address1</th>
+                        <th scope="col">PassWord</th>
                     </tr>
                     </thead>
                     <c:forEach items='${requestScope["customers"]}' var="customer">

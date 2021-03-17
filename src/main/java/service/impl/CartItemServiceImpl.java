@@ -1,7 +1,7 @@
 package service.impl;
 
 import dao.CartItemDao;
-import dao.Impl.CartItemDaoImpl;
+import dao.impl.CartItemDaoImpl;
 import model.CartItem;
 import service.CartItemService;
 
