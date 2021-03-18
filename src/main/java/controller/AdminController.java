@@ -170,7 +170,7 @@ public class AdminController extends HttpServlet {
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         categoryService.delete(id);
-        response.sendRedirect("");
+        response.sendRedirect("admin?ac=list_cate");
     }
 
     private void showFormAddCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
