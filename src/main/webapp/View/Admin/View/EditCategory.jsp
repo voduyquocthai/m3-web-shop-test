@@ -77,57 +77,39 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
-                            dashboard
+                            person
                         </i>
                         <span class="text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
-                        <span class="text">User Profile</span>
+                        <span class="text">User Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
-                        <i class="material-icons icon"> insert_chart </i
-                        ><span class="text">Charts</span></a
-                    >
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_product" class="nav-link px-2">
+                        <i class="material-icons icon"> insert_chart </i><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
-                        <span class="text">Settings</span>
+                        <span class="text">Order Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
-                        <i class="material-icons icon">
-                            pages
-                        </i>
-                        <span class="text">Pages</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_cate" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
-                        <span class="text">Demo</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2 sideMenuToggler">
-                        <i class="material-icons icon expandView ">
-                            view_list
-                        </i>
-                        <span class="text">Resize</span>
+                        <span class="text">Category Management</span>
                     </a>
                 </li>
             </ul>

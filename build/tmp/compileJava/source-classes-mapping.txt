@@ -10,8 +10,8 @@ dao/impl/CategoryDaoImpl.java
  dao.impl.CategoryDaoImpl
 model/User.java
  model.User
-dao/impl/ProductDaoImpl.java
- dao.impl.ProductDaoImpl
+dao/impl/UserDaoImpl.java
+ dao.impl.UserDaoImpl
 dao/UserDao.java
  dao.UserDao
 dao/CartDao.java
@@ -42,15 +42,15 @@ controller/ClientController.java
  controller.ClientController
 service/impl/CartServiceImpl.java
  service.impl.CartServiceImpl
-service/impl/ProductServiceImpl.java
- service.impl.ProductServiceImpl
+service/impl/UserServiceImpl.java
+ service.impl.UserServiceImpl
 service/CategoryService.java
  service.CategoryService
 model/Product.java
  model.Product
-dao/impl/UserDaoImpl.java
- dao.impl.UserDaoImpl
-service/impl/UserServiceImpl.java
- service.impl.UserServiceImpl
+dao/impl/ProductDaoImpl.java
+ dao.impl.ProductDaoImpl
+service/impl/ProductServiceImpl.java
+ service.impl.ProductServiceImpl
 controller/AdminController.java
  controller.AdminController
