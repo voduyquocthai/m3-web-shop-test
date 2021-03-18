@@ -106,7 +106,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_category" class="nav-link px-2">
+                    <a href="admin?ac=list_cate" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>

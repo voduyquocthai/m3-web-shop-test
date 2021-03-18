@@ -155,7 +155,7 @@ public class AdminController extends HttpServlet {
     private void showAllCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> categoryList = categoryService.getAll();
         request.setAttribute("categoryList", categoryList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/ListCategory.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -163,18 +163,18 @@ public class AdminController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Category category = categoryService.get(id);
         request.setAttribute("category", category);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/View/Admin/View/EditCategory.jsp");
         dispatcher.forward(request, response);
     }
 
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         categoryService.delete(id);
-        response.sendRedirect("");
+        response.sendRedirect("admin?ac=list_cate");
     }
 
     private void showFormAddCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/View/Admin/View/AddCategory.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -261,7 +261,7 @@ public class AdminController extends HttpServlet {
         Category category = new Category();
         category.setName(name);
         categoryService.insert(category);
-        response.sendRedirect("");
+        response.sendRedirect("admin?ac=list_cate");
     }
 
 }
