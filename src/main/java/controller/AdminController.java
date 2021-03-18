@@ -93,13 +93,13 @@ public class AdminController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.get(id);
         request.setAttribute("user",user);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/EditUser.jsp");
         dispatcher.forward(request,response);
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         userService.delete(Integer.parseInt(request.getParameter("id")));
-        response.sendRedirect("");
+        response.sendRedirect("/admin?ac=list_user");
     }
 
     private void showFormAddUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -181,6 +181,9 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("ac");
+        if(action == null){
+            action = "";
+        }
         switch (action) {
             case "add_cate":
                 addCategory(request, response);
@@ -200,18 +203,27 @@ public class AdminController extends HttpServlet {
             case "edit_user":
                 editUser(request,response);
                 break;
+            default:
+                showDashboard(request, response);
+                break;
         }
     }
 
     private void editUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = new User();
+        int id = Integer.parseInt(request.getParameter("id")) ;
+        User user = userService.get(id);
         user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
         user.setEmail(request.getParameter("email"));
-        user.setAvatar(request.getParameter("avatar"));
-        user.setRoleId(Integer.parseInt(request.getParameter("role_id")));
+        user.setPassword(request.getParameter("password"));
+        String role = request.getParameter("role_id");
+        if(role.equals("Admin")){
+            user.setRoleId(1);
+        } else if (role.equals("User")){
+            user.setRoleId(0);
+        }
+        user.setAvatar("/View/Img/"+ request.getParameter("avatar"));
         userService.edit(user);
-        response.sendRedirect("");
+        response.sendRedirect("/admin?ac=list_user");
     }
 
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -219,10 +231,15 @@ public class AdminController extends HttpServlet {
         user.setUsername(request.getParameter("username"));
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
-        user.setRoleId(Integer.parseInt(request.getParameter("role_id")));
-        user.setAvatar(request.getParameter("avatar"));
+        String role = request.getParameter("role_id");
+        if(role.equals("Admin")){
+            user.setRoleId(1);
+        } else if (role.equals("User")){
+            user.setRoleId(0);
+        }
+        user.setAvatar("/View/Img/"+ request.getParameter("avatar"));
         userService.insert(user);
-        response.sendRedirect("");
+        response.sendRedirect("/admin?ac=list_user");
     }
 
     private void editProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -88,7 +88,7 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="admin?ac=dashboard" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_user" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -104,12 +104,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_product" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_product" class="nav-link px-2">
                         <i class="material-icons icon"> insert_chart </i
                         ><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_order" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_category" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_category" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
@@ -128,7 +128,7 @@
         </div>
     </div>
     <div class="content">
-        <form method="post" style="width: 80%; margin-top: 50px;margin-left: 150px">
+        <form action="/admin?ac=add_user" method="post" style="width: 80%; margin-top: 50px;margin-left: 150px">
             <div class="row"><h2> Add new User </h2></div>
             <div style="margin-top: 20px" class="form-row">
                 <div class="form-group col-md-6">
@@ -146,12 +146,12 @@
             </div>
             <div class="form-group">
                 <label class="form-label" for="customFile">Avatar</label>
-                <input type="file" class="form-control" id="customFile" />
+                <input name="avatar" type="file" class="form-control" id="customFile" />
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputRole">Role</label>
-                    <select id="inputRole" class="form-control">
+                    <select name="role_id" id="inputRole" class="form-control">
                         <option selected>Choose...</option>
                         <option>Admin</option>
                         <option>User</option>

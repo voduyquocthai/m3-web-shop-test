@@ -79,7 +79,7 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="admin?ac=dashboard" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_user" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -95,12 +95,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_product" class="nav-link px-2">
-                        <i class="material-icons icon"> insert_chart </i
-                        ><span class="text">Product Management</span></a>
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_product" class="nav-link px-2">
+                        <i class="material-icons icon"> insert_chart </i><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_order" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
@@ -108,7 +107,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_category" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_category" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
@@ -135,6 +134,7 @@
                 <div class="col-md-9"></div>
                 <div class="col-md-3"><a style="float: right ; margin-top: 35px" class="btn btn-warning" href="/admin?ac=add_user">Add new member</a> </div>
             </div>
+
             <div style="margin-top: 20px" class="row">
                 <table style="margin-top: 50px ; color: black" class="table table-striped">
                     <thead>
@@ -142,8 +142,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Action</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Password</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Avatar</th>
                         <th scope="col">Role</th>
                     </tr>
@@ -152,7 +152,7 @@
                         <tr>
                             <td>${user.getId()}</td>
                             <td>
-                                <a class="btn btn-primary" href="/admin?act=edit_user&id=${user.getId()}">
+                                <a class="btn btn-primary" href="/admin?ac=edit_user&id=${user.getId()}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path
@@ -163,7 +163,7 @@
                                     Edit
                                 </a>
 
-                                <a class="btn btn-danger" href="/admin?act=delete_user&id=${user.getId()}">
+                                <a class="btn btn-danger" href="/admin?ac=delete_user&id=${user.getId()}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-trash" viewBox="0 0 16 16">
                                         <path

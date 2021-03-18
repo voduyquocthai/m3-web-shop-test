@@ -18,17 +18,7 @@
             integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY="
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/View/Admin/Css/EditUser.scss"/>
-</head>
-
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>FrontendFunn -</title>
+    <link rel="stylesheet" href="/View/Admin/Css/AddUser.scss"/>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
@@ -44,11 +34,8 @@
     />
     <link rel="stylesheet" href="/View/Admin/Css/Index.css"/>
 </head>
-
 <body>
-<nav
-        class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top"
->
+<nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
     <button class="navbar-toggler sideMenuToggler" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -101,111 +88,77 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
-                            dashboard
+                            person
                         </i>
                         <span class="text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
-                        <span class="text">User Profile</span>
+                        <span class="text">User Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_product" class="nav-link px-2">
                         <i class="material-icons icon"> insert_chart </i
-                        ><span class="text">Charts</span></a
-                    >
+                        ><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
-                        <span class="text">Settings</span>
+                        <span class="text">Order Management</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
-                        <i class="material-icons icon">
-                            pages
-                        </i>
-                        <span class="text">Pages</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_category" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
-                        <span class="text">Demo</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link px-2 sideMenuToggler">
-                        <i class="material-icons icon expandView ">
-                            view_list
-                        </i>
-                        <span class="text">Resize</span>
+                        <span class="text">Category Management</span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="content">
-        <form style="width: 80%; margin-top: 50px;margin-left: 150px">
+        <form method="post" style="width: 80%; margin-top: 50px;margin-left: 150px">
             <div class="row"><h2> Edit User </h2></div>
             <div style="margin-top: 20px" class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="inputEmail4">Username</label>
+                    <input name="username" type="text" class="form-control" id="inputEmail4" value="${user.getUsername()}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input name="password" type="password" class="form-control" id="inputPassword4" value="${user.getPassword()}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="inputAddress">Email</label>
+                <input name="email" type="email" class="form-control" id="inputAddress" value="${user.getEmail()}" >
             </div>
             <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <label class="form-label" for="customFile">Avatar</label>
+                <input name="avatar" type="file" class="form-control" id="customFile" value="${user.getAvatar()}" />
             </div>
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
                 <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
+                    <label for="inputRole">Role</label>
+                    <select name="role_id" id="inputRole" class="form-control" >
                         <option selected>Choose...</option>
-                        <option>...</option>
+                        <option>Admin</option>
+                        <option>User</option>
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Edit</button>
-            <a href="Index.jsp" class="btn btn-primary">Back</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
