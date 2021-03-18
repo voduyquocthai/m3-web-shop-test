@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>FrontendFunn -</title>
+    <title>User Dashboard</title>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
@@ -77,7 +77,7 @@
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="admin?ac=dashboard" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=dashboard" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_user" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_user" class="nav-link px-2">
                         <i class="material-icons icon">
                             person
                         </i>
@@ -93,12 +93,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_product" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_product" class="nav-link px-2">
                         <i class="material-icons icon"> insert_chart </i
                         ><span class="text">Product Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_order" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_order" class="nav-link px-2">
                         <i class="material-icons icon">
                             settings
                         </i>
@@ -106,7 +106,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="admin?ac=list_category" class="nav-link px-2">
+                    <a href="${pageContext.request.contextPath }/admin?ac=list_category" class="nav-link px-2">
                         <i class="material-icons icon">
                             computer
                         </i>
