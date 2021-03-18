@@ -28,9 +28,8 @@ public class AdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String action = request.getParameter("ac");
-        if(action == null){
+        if (action == null) {
             action = "";
         }
         switch (action) {
@@ -62,19 +61,22 @@ public class AdminController extends HttpServlet {
                 showFormEditProduct(request, response);
                 break;
             case "list_product":
-                showAllProductList(request,response);
+                showAllProductList(request, response);
+                break;
+            case "search_product":
+                searchProduct(request,response);
                 break;
             case "add_user":
-                showFormAddUser(request,response);
+                showFormAddUser(request, response);
                 break;
             case "delete_user":
-                deleteUser(request,response);
+                deleteUser(request, response);
                 break;
             case "edit_user":
-                showFormEditUser(request,response);
+                showFormEditUser(request, response);
                 break;
             case "list_user":
-                showAllUser(request,response);
+                showAllUser(request, response);
                 break;
             default:
                 showDashboard(request, response);
@@ -82,19 +84,26 @@ public class AdminController extends HttpServlet {
         }
     }
 
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String key = request.getParameter("search");
+        List<Product> products = productService.search(key);
+        request.setAttribute("products",products);
+        request.getRequestDispatcher("View/Admin/View/ListProduct.jsp").forward(request,response);
+    }
+
     private void showAllUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = userService.getAll();
-        request.setAttribute("userList",userList);
+        request.setAttribute("userList", userList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/ListUser.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     private void showFormEditUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.get(id);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -109,8 +118,8 @@ public class AdminController extends HttpServlet {
     private void showAllProductList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> products = productService.getAll();
         request.setAttribute("products", products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request,response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/ListProduct.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void showFormEditProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -118,19 +127,19 @@ public class AdminController extends HttpServlet {
         List<Category> categories = categoryService.getAll();
         request.setAttribute("categories", categories);
         request.setAttribute("product", product);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/EditProduct.jsp");
         dispatcher.forward(request, response);
     }
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         productService.delete(Integer.parseInt(request.getParameter("id")));
-        response.sendRedirect(request.getContextPath() + "");
+        response.sendRedirect("admin?ac=list_product");
     }
 
     private void showFormAddProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> categories = categoryService.getAll();
         request.setAttribute("categories", categories);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Admin/View/AddProduct.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -194,11 +203,14 @@ public class AdminController extends HttpServlet {
             case "edit_product":
                 editProduct(request, response);
                 break;
+            case "search_product":
+                searchProduct(request,response);
+                break;
             case "add_user":
-                addUser(request,response);
+                addUser(request, response);
                 break;
             case "edit_user":
-                editUser(request,response);
+                editUser(request, response);
                 break;
         }
     }
@@ -227,25 +239,25 @@ public class AdminController extends HttpServlet {
 
     private void editProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Product product = new Product();
-        product.setId(Integer.parseInt(request.getParameter("id_product")));
+        product.setId(Integer.parseInt(request.getParameter("id")));
         product.setName(request.getParameter("name_product"));
         product.setPrice(Float.parseFloat(request.getParameter("price_product")));
-        product.setDes(request.getParameter("des"));
-        product.setImage(request.getParameter("image"));
-        product.setCategory(categoryService.get(Integer.parseInt(request.getParameter("id_cate"))));
+        product.setDes(request.getParameter("des_product"));
+        product.setImage("View/Img/"+request.getParameter("image"));
+        product.setCategory(categoryService.get(Integer.parseInt(request.getParameter("category"))));
         productService.edit(product);
-        response.sendRedirect(request.getContextPath() + "");
+        response.sendRedirect( "admin?ac=list_product");
     }
 
     private void addProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Product product = new Product();
         product.setName(request.getParameter("name_product"));
         product.setPrice(Float.parseFloat(request.getParameter("price_product")));
-        product.setCategory(categoryService.get(Integer.parseInt(request.getParameter("id_cate"))));
+        product.setCategory(categoryService.get(Integer.parseInt(request.getParameter("category"))));
         product.setDes(request.getParameter("des_product"));
-        product.setImage(request.getParameter("image"));
+        product.setImage("View/Img/"+request.getParameter("image"));
         productService.insert(product);
-        response.sendRedirect("");
+        response.sendRedirect("admin?ac=list_product");
     }
 
     private void editCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {

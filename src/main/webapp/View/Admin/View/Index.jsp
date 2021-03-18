@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>FrontendFunn -</title>
     <link
             rel="stylesheet"
@@ -18,7 +18,7 @@
             integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY="
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/View/Admin/Css/Index.css" />
+    <link rel="stylesheet" href="/View/Admin/Css/Index.css"/>
 </head>
 
 <body>
@@ -73,7 +73,7 @@
     </div>
 </nav>
 <div class="wrapper d-flex">
-    <div class="sideMenu bg-mattBlackLight">
+    <div class="sideMenu bg-mattBlackLight" style="width: 330px;">
         <div class="sidebar">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -118,7 +118,7 @@
     </div>
     <div class="content">
 
-</div>
+    </div>
 </div>
 <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -135,6 +135,6 @@
         integrity="sha256-qE/6vdSYzQu9lgosKxhFplETvWvqAAlmAuR+yPh/0SI="
         crossorigin="anonymous"
 ></script>
-    </div>
+</div>
 </body>
 </html>

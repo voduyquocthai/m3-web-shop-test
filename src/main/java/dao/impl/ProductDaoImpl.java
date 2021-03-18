@@ -30,7 +30,7 @@ public class ProductDaoImpl implements ProductDao {
             ps.setString(4, product.getDes());
             ps.setString(5, product.getImage());
 
-            ps.executeQuery();
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product get(int id) {
-        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.name AS c_name, category.id AS c_id " +
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.name AS c_name, category.id AS c_id " +
                 " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE product.id = ? ";
 
         try(
@@ -91,7 +91,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(rs.getString("p_name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
-                product.setImage(rs.getString("img"));
+                product.setImage(rs.getString("image"));
                 product.setCategory(category);
                 return product;
             }
@@ -105,7 +105,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> getAll() {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.name AS c_name, category.id AS c_id " +
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.name AS c_name, category.id AS c_id " +
                 " FROM Product INNER JOIN Category ON product.cate_id = category.id";
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
@@ -119,7 +119,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(rs.getString("p_name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
-                product.setImage(rs.getString("img"));
+                product.setImage(rs.getString("image"));
                 product.setCategory(category);
                 products.add(product);
             }
@@ -142,13 +142,13 @@ public class ProductDaoImpl implements ProductDao {
             ps.setString(1, "%" + keyword + "%");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Category category = categoryService.get(rs.getInt("c_id"));
+                Category category = categoryService.get(rs.getInt("cate_id"));
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
-                product.setName(rs.getString("p_name"));
+                product.setName(rs.getString("name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
-                product.setImage(rs.getString("img"));
+                product.setImage(rs.getString("image"));
                 product.setCategory(category);
                 products.add(product);
             }
@@ -162,7 +162,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> searchByCategory(int cate_id) {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.id AS c_id " +
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.id AS c_id " +
                 " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE c_id = ? ";
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
@@ -178,7 +178,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(rs.getString("p_name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
-                product.setImage(rs.getString("img"));
+                product.setImage(rs.getString("image"));
                 product.setCategory(category);
                 products.add(product);
             }
@@ -192,7 +192,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> searchByName(String product_name_keyword) {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.img, category.id AS c_id " +
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.id AS c_id " +
                 " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE Product.name LIKE ? ";
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
@@ -208,7 +208,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setName(rs.getString("p_name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
-                product.setImage(rs.getString("img"));
+                product.setImage(rs.getString("image"));
                 product.setCategory(category);
                 products.add(product);
             }
