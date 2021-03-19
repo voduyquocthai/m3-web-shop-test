@@ -1,7 +1,7 @@
 dao/CategoryDao.java
  dao.CategoryDao
-dao/impl/CartItemDaoImpl.java
- dao.impl.CartItemDaoImpl
+dao/impl/UserDaoImpl.java
+ dao.impl.UserDaoImpl
 dao/impl/CartDaoImpl.java
  dao.impl.CartDaoImpl
 model/CartItem.java
@@ -10,14 +10,14 @@ dao/impl/CategoryDaoImpl.java
  dao.impl.CategoryDaoImpl
 model/User.java
  model.User
-dao/impl/UserDaoImpl.java
- dao.impl.UserDaoImpl
+dao/impl/ProductDaoImpl.java
+ dao.impl.ProductDaoImpl
 dao/UserDao.java
  dao.UserDao
-dao/CartDao.java
- dao.CartDao
 service/UserService.java
  service.UserService
+dao/CartDao.java
+ dao.CartDao
 model/Category.java
  model.Category
 dao/ProductDao.java
@@ -42,15 +42,15 @@ controller/ClientController.java
  controller.ClientController
 service/impl/CartServiceImpl.java
  service.impl.CartServiceImpl
-service/impl/UserServiceImpl.java
- service.impl.UserServiceImpl
-service/CategoryService.java
- service.CategoryService
-model/Product.java
- model.Product
-dao/impl/ProductDaoImpl.java
- dao.impl.ProductDaoImpl
 service/impl/ProductServiceImpl.java
  service.impl.ProductServiceImpl
+service/impl/UserServiceImpl.java
+ service.impl.UserServiceImpl
+model/Product.java
+ model.Product
 controller/AdminController.java
  controller.AdminController
+service/CategoryService.java
+ service.CategoryService
+dao/impl/CartItemDaoImpl.java
+ dao.impl.CartItemDaoImpl
