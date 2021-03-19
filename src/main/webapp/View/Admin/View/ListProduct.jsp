@@ -18,7 +18,8 @@
     <div id="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9"></div>
+                <div class="col-md-3"><a class="btn btn-warning" href="/admin?ac=add_product">Add New Product</a></div>
+                <div class="col-md-6"></div>
                 <div class="col-md-3">
                     <form action="/admin?ac=search_product" method="post">
                         <div class="input-group">
@@ -28,11 +29,7 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-3"><a style="float: right ; margin-top: 35px" class="btn btn-warning"
-                                         href="/admin?ac=add_product">Add New Product</a></div>
-            </div>
+
             <div style="margin-top: 20px" class="row">
                 <table style="margin-top: 50px ; color: black" class="table table-striped">
                     <thead>
@@ -89,7 +86,7 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-8">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-3"></div>
                     <div style="margin-top: 25px ; float: right" class="col-md-3"> Show
                         <select class="selectpicker">
                             <option>1</option>
@@ -107,7 +104,7 @@
                         </select>
                         <span>Entries</span>
                     </div>
-                    <div style="float: right ; margin-top: 17px" class="col-md-5">
+                    <div style="float: right ; margin-top: 17px" class="col-md-6">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>

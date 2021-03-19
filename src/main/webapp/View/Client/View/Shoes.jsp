@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 15/03/2021
-  Time: 2:02 CH
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,8 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Website | Responsive Website Design</title>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap-website/css/style.css">
@@ -41,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto" id="navbarList">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/user">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Shoes</a>
@@ -75,44 +67,21 @@
             </div>
         </nav>
     </div>
-    <div class="row"><a href="Index.jsp">Page </a> - Shoes</div>
+    <div class="row"><a href="/user">Home </a> > Shoes</div>
     <div style="margin-top: 20px" class="row">
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/SALEoff/giayluoi.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
+        <c:forEach  items="${requestScope['products']}" var="pr">
+            <div class="col-md-3">
+                <a href="/user?ac=product_detail&id=${p.getId()}">
+                    <div class="card" style="width: 90%;">
+                        <img class="card-img-top" src="${pr.getImage()}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">${pr.getPrice()} $<br>${pr.getName()}</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/NewArrival/giaysneaker.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/guoc.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/dep.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div></div>
+        </c:forEach>
+    </div>
     <div class="row"></div>
     <div class="row"></div>
     <div style="margin-top: 50px" class="row"><!-- Footer -->

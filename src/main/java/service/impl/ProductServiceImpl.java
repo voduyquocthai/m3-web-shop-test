@@ -56,4 +56,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> searchByName(String productName) {
         return productDao.searchByName(productName);
     }
+
+    @Override
+    public List<Product> getRandomProduct(int number) {
+        return productDao.getRandomProduct(number);
+    }
 }

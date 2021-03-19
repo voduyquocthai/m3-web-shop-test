@@ -20,4 +20,6 @@ public interface ProductService {
     List<Product> searchByCategory(int cate_id);
 
     List<Product> searchByName(String productName);
+
+    List<Product> getRandomProduct(int number);
 }

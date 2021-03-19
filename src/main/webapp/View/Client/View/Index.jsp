@@ -1,71 +1,103 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Website | Responsive Website Design</title>
-    <!-- Latest compiled and minified CSS -->
+    <title>Home | Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../bootstrap-website/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="View/Client/Css/Index.css">
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div style="margin-top: 20px" class="col-md-3"><a href="/View/Client/View/Index.jsp">
+    <div class="row" style="margin: 10px 0 10px 0">
+        <div class="col-md-3"><a href="/View/Client/View/Index.jsp">
             <img src="/View/Client/Css/logo.png" alt="Logo" title="Logo">
         </a></div>
-        <div style="margin-top: 30px" class="col-md-5 text-center"><div style="width: 70% ;float: right" class="input-group rounded">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                   aria-describedby="search-addon" />
-        </div>
+        <div class="col-md-5">
+            <div style="width: 70% ;float: right" class="input-group">
+                <form action="/user?ac=search_product_by_name" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Quick search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                            <i class="bi bi-search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+
+            </div>
         </div>
         <div class="col-md-1"></div>
-        <div style="margin-top: 46px " class="col-md-3">
-            <a style="" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
+        <div class="col-md-3">
+            <a style="" class="btn btn-secondary" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
         </div>
     </div>
     <div class="row">
-        <nav class="navbar bg-light navbar-light navbar-expand-lg">
-            <div style="margin-left: 200px" class="container">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto" id="navbarList">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Shoes.jsp">Shoes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Hand Bag</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Backpack</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Wallet</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sandals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Accessories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sale Off</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">New Arrival</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">News</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar bg-light navbar-light navbar-expand-lg">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto" id="navbarList">
+                            <li class="nav-item active">
+                                <a class="nav-link btn btn-light" href="#">Home <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="View/Client/View/Shoes.jsp">Shoes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">Hand Bag</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">Backpack</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">Wallet</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Category
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <c:forEach items="${requestScope['categories']}" var="c">
+                                            <a class="dropdown-item"
+                                               href="/user?ac=search_product_by_cate&id=${c.getId()}">${c.getName()}</a>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">Accessories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">Sale Off</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">New Arrival</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" href="#">News</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </div>
     <div class="row">
         <div style=" " id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -93,7 +125,8 @@
     </div>
     <div style="margin-top: 20px" class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6"><p style="text-align: center ; color: red ; font-size: 25px">THE NEW SEASON COLLECTION</p></div>
+        <div class="col-md-6"><p style="text-align: center ; color: red ; font-size: 25px">THE NEW SEASON COLLECTION</p>
+        </div>
         <div class="col-md-3"></div>
     </div>
     <div class="row">
@@ -104,86 +137,46 @@
         <div class="col-md-6"><p style="text-align: center ; color: red  ;  font-size: 25px">NEW ARRIVAL</p></div>
         <div class="col-md-3"></div>
     </div>
+
     <div style="margin-top: 20px" class="row">
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/NewArrival/shoes.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
+        <c:forEach items="${requestScope['productList']}" var="p">
+            <div style="margin-bottom: 45px" class="col-md-3">
+                <a href="/user?ac=product_detail&id=${p.getId()}">
+                    <div class="card" style="width: 90%;">
+                        <img class="card-img-top" src="${p.getImage()}" alt="${p.getName()}">
+                        <div class="card-body">
+                            <p class="card-text">${p.getPrice()} $<br>${p.getName()}</p><br>
+                            <a href="/user?ac=addItem&pId=${p.getId()}" class="btn btn-light">
+                                <i class="fas fa-shopping-cart pr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/NewArrival/tui.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/NewArrival/giaysneaker.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/NewArrival/vi.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
+
     <div style="margin-top: 20px" class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6"><p style="text-align: center ; color: red ;font-size: 25px">SALE OFF</p></div>
         <div class="col-md-3"></div>
     </div>
     <div style="margin-top: 20px" class="row">
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/SALEoff/canvas.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
+        <c:forEach items="${requestScope['products']}" var="pr">
+            <div class="col-md-3">
+                <a href="/user?ac=product_detail&id=${pr.getId()}">
+                    <div class="card" style="width: 90%;">
+                        <img class="card-img-top" src="${pr.getImage()}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">${pr.getPrice()} $<br>${pr.getName()}</p><br>
+                            <a href="/user?ac=addItem&pId=${pr.getId()}" class="btn btn-light">
+                                <i class="fas fa-shopping-cart pr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/SALEoff/vicam.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/SALEoff/giayluoi.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/SALEoff/tuikhoa.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
     <div style="margin-top: 20px" class="row">
         <div class="col-md-3"></div>
@@ -191,46 +184,26 @@
         <div class="col-md-3"></div>
     </div>
     <div style="margin-top: 20px" class="row">
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/tui.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
+        <c:forEach items="${requestScope['products']}" var="pr">
+            <div class="col-md-3">
+                <a href="/user?ac=product_detail&id=${p.getId()}">
+                    <div class="card" style="width: 90%;">
+                        <img class="card-img-top" src="${pr.getImage()}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">${pr.getPrice()} $<br>${pr.getName()}</p><br>
+                            <a href="/user?ac=addItem&pId=${p.getId()}" class="btn btn-light">
+                                <i class="fas fa-shopping-cart pr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/tuixach.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/guoc.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 90%;">
-                <img class="card-img-top" src="/View/Client/Css/Hot/dep.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">545.000 vnd <br>
-                        Polygonal Metallic Spike Heel Shoes</p>
-                </div>
-            </div>
-        </div></div>
+        </c:forEach>
+    </div>
 
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
     <div style="margin-top: 50px" class="row"><!-- Footer -->
         <footer class="bg-light text-center text-lg-start">
             <!-- Grid container -->
@@ -312,9 +285,9 @@
         </footer>
         <!-- Footer --></div>
 </div>
-    <script src="/View/Client/Css/Jquery/jquery-3.5.1.min.js"></script>
-    <script src="/View/Client/Css/Jquery/all.min.js"></script>
-    <script src="/View/Client/Css/Jquery/bootstrap.min.js"></script>
-    <script src="/View/Client/Css/Jquery/popper.min.js"></script>
+<script src="/View/Client/Css/Jquery/jquery-3.5.1.min.js"></script>
+<script src="/View/Client/Css/Jquery/all.min.js"></script>
+<script src="/View/Client/Css/Jquery/bootstrap.min.js"></script>
+<script src="/View/Client/Css/Jquery/popper.min.js"></script>
 </body>
 </html>

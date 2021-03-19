@@ -21,9 +21,8 @@ public class ClientController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("ac");
+        if(action==null) action="";
         switch (action){
-            case "home":
-                showHomePage(request, response);
             case "addItem":
                 addProductIntoCart(request, response);
                 break;
@@ -58,6 +57,8 @@ public class ClientController extends HttpServlet {
             case "search_product_by_name":
                 searchProductByName(request, response);
                 break;
+            default:
+                showHomePage(request, response);
         }
 
     }
@@ -65,15 +66,22 @@ public class ClientController extends HttpServlet {
     private void searchProductByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String keyword = request.getParameter("search");
         List<Product> productList = productService.searchByName(keyword);
+        List<Category> categories = categoryService.getAll();
+        request.setAttribute("categories",categories);
         request.setAttribute("productList", productList);
-        request.getRequestDispatcher("").forward(request, response);
+        request.setAttribute("key",keyword);
+        request.getRequestDispatcher("View/Client/View/SearchResult.jsp").forward(request, response);
     }
 
     private void searchProductByCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int cate_id = Integer.parseInt(request.getParameter("cate_id"));
-        List<Product> productList = productService.searchByCategory(cate_id);
-        request.setAttribute("productListCate", productList);
-        request.getRequestDispatcher("").forward(request, response);
+        int cate_id = Integer.parseInt(request.getParameter("id"));
+        Category category = categoryService.get(cate_id);
+        List<Product> products = productService.searchByCategory(cate_id);
+        List<Category> categories = categoryService.getAll();
+        request.setAttribute("categories",categories);
+        request.setAttribute("category",category);
+        request.setAttribute("products", products);
+        request.getRequestDispatcher("View/Client/View/ShowCategory.jsp").forward(request, response);
     }
 
     private void showAllProductClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,7 +97,7 @@ public class ClientController extends HttpServlet {
         List<Category> categories = categoryService.getAll();
         request.setAttribute("categories", categories);
         request.setAttribute("product", product);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Client/View/ProductDetail.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -147,6 +155,9 @@ public class ClientController extends HttpServlet {
                 break;
             case "register":
                 addNew(request, response);
+                break;
+            case "search_product_by_name":
+                searchProductByName(request, response);
                 break;
         }
     }
@@ -212,7 +223,13 @@ public class ClientController extends HttpServlet {
     }
 
     private void showHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("View/Client/View/Index.jsp");
+        List<Product> productList = productService.getAll();
+        List<Product> products = productService.getRandomProduct(4);
+        List<Category> categories = categoryService.getAll();
+        request.setAttribute("products",products);
+        request.setAttribute("productList",productList);
+        request.setAttribute("categories",categories);
+        request.getRequestDispatcher("View/Client/View/Index.jsp").forward(request,response);
     }
 
 }

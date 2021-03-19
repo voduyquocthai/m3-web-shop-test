@@ -20,4 +20,6 @@ public interface ProductDao {
     List<Product> searchByCategory(int cate_id);
 
     List<Product> searchByName(String product_name_keyword);
+
+    List<Product> getRandomProduct(int number);
 }
