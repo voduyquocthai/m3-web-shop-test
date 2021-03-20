@@ -1,56 +1,58 @@
 dao/CategoryDao.java
  dao.CategoryDao
-dao/impl/CartItemDaoImpl.java
- dao.impl.CartItemDaoImpl
-dao/impl/CartDaoImpl.java
- dao.impl.CartDaoImpl
-model/CartItem.java
- model.CartItem
-dao/impl/CategoryDaoImpl.java
- dao.impl.CategoryDaoImpl
-model/User.java
- model.User
-dao/impl/UserDaoImpl.java
- dao.impl.UserDaoImpl
-dao/UserDao.java
- dao.UserDao
-dao/CartDao.java
- dao.CartDao
-service/UserService.java
- service.UserService
-model/Category.java
- model.Category
 dao/ProductDao.java
  dao.ProductDao
+service/impl/ProductServiceImpl.java
+ service.impl.ProductServiceImpl
+dao/impl/ProductDaoImpl.java
+ dao.impl.ProductDaoImpl
+service/CategoryService.java
+ service.CategoryService
+dao/impl/CategoryDaoImpl.java
+ dao.impl.CategoryDaoImpl
 service/ProductService.java
  service.ProductService
-service/CartItemService.java
- service.CartItemService
 jdbc/JDBCConnection.java
  jdbc.JDBCConnection
 service/impl/CategoryServiceImpl.java
  service.impl.CategoryServiceImpl
+model/Product.java
+ model.Product
+model/Category.java
+ model.Category
+service/CartItemService.java
+ service.CartItemService
+controller/AdminController.java
+ controller.AdminController
+dao/impl/CartDaoImpl.java
+ dao.impl.CartDaoImpl
 service/CartService.java
  service.CartService
+model/CartItem.java
+ model.CartItem
 model/Cart.java
  model.Cart
 dao/CartItemDao.java
  dao.CartItemDao
 service/impl/CartItemServiceImpl.java
  service.impl.CartItemServiceImpl
-controller/ClientController.java
- controller.ClientController
+dao/impl/CartItemDaoImpl.java
+ dao.impl.CartItemDaoImpl
 service/impl/CartServiceImpl.java
  service.impl.CartServiceImpl
+model/User.java
+ model.User
+dao/UserDao.java
+ dao.UserDao
+dao/CartDao.java
+ dao.CartDao
+service/UserService.java
+ service.UserService
+dao/impl/UserDaoImpl.java
+ dao.impl.UserDaoImpl
 service/impl/UserServiceImpl.java
  service.impl.UserServiceImpl
-service/CategoryService.java
- service.CategoryService
-model/Product.java
- model.Product
-dao/impl/ProductDaoImpl.java
- dao.impl.ProductDaoImpl
-service/impl/ProductServiceImpl.java
- service.impl.ProductServiceImpl
-controller/AdminController.java
- controller.AdminController
+controller/WaitingController.java
+ controller.WaitingController
+controller/ClientController.java
+ controller.ClientController
