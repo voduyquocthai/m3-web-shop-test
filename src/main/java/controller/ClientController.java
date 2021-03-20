@@ -65,7 +65,13 @@ public class ClientController extends HttpServlet {
 
     private void searchProductByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String keyword = request.getParameter("search");
-        List<Product> productList = productService.searchByName(keyword);
+        String cate_id = request.getParameter("id_cate");
+        List<Product> productList;
+        if (cate_id.equals("searchAll")){
+            productList = productService.searchByName(keyword);
+        }else {
+            productList = productService.searchByName(keyword,Integer.parseInt(cate_id));
+        }
         List<Category> categories = categoryService.getAll();
         request.setAttribute("categories",categories);
         request.setAttribute("productList", productList);
@@ -97,7 +103,7 @@ public class ClientController extends HttpServlet {
         List<Category> categories = categoryService.getAll();
         request.setAttribute("categories", categories);
         request.setAttribute("product", product);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Client/View/ProductDetail.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Client/View/ProductsDetail.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -12,13 +12,28 @@
 <body>
 <div class="container">
     <div class="row" style="margin: 10px 0 10px 0">
-        <div class="col-md-3"><a href="/View/Client/View/Index.jsp">
+        <div class="col-md-3"><a href="/user">
             <img src="/View/Client/Css/logo.png" alt="Logo" title="Logo">
         </a></div>
-        <div class="col-md-5 text-center">
-            <div style="width: 70% ;float: right" class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                       aria-describedby="search-addon"/>
+        <div class="col-md-5">
+            <div style="width: 70% ;float: right" class="input-group">
+                <form action="/user?ac=search_product_by_name&id_cate=${category.getId()}" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Quick search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                            <i class="bi bi-search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+
             </div>
         </div>
         <div class="col-md-1"></div>

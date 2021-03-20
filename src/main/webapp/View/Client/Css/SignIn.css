@@ -20,7 +20,11 @@ body {
     height: 100%;
     position: absolute;
     padding: 90px 70px 50px 70px;
+<<<<<<< HEAD
     background: rgba(23, 33, 33, 0.9)
+=======
+    background: rgba(19, 11, 11, 0.9)
+>>>>>>> 310ac6409af1f897da810405b49012ee59ad38cf
 }
 
 .login-snip .login,

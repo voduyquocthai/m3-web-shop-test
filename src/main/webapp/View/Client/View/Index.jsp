@@ -16,12 +16,12 @@
 <body>
 <div class="container">
     <div class="row" style="margin: 10px 0 10px 0">
-        <div class="col-md-3"><a href="/View/Client/View/Index.jsp">
+        <div class="col-md-3"><a href="/user">
             <img src="/View/Client/Css/logo.png" alt="Logo" title="Logo">
         </a></div>
         <div class="col-md-5">
             <div style="width: 70% ;float: right" class="input-group">
-                <form action="/user?ac=search_product_by_name" method="post">
+                <form action="/user?ac=search_product_by_name&id_cate=searchAll" method="post">
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="Quick search">
                         <span class="input-group-btn">
