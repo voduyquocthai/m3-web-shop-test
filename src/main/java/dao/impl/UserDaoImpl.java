@@ -1,4 +1,4 @@
-package dao.Impl;
+package dao.impl;
 
 import dao.UserDao;
 import jdbc.JDBCConnection;
@@ -15,7 +15,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void insert(User user) {
-        int roleId = 0;
         String sql = "INSERT INTO User (username, password, email, avatar, role_id) VALUES (?, ?, ?, ?, ?)";
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
@@ -44,7 +43,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getAvatar());
-            ps.setString(5, user.getAvatar());
+            ps.setInt(5, user.getRoleId());
             ps.setInt(6, user.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -189,8 +188,8 @@ public class UserDaoImpl implements UserDao {
         ) {
 
             ps.setString(1, email);
-            ResultSet resultSet = ps.getResultSet();
-            if (resultSet.next()) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
                 duplicate = true;
             }
 
@@ -203,15 +202,15 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean checkExistUsername(String username) {
         boolean duplicate = false;
-        String sql = "SELECT * FROM User WHERE username = ?";
+        String sql = "select * from User where username = ?";
 
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
         ) {
             ps.setString(1, username);
-            ResultSet resultSet = ps.getResultSet();
-            if (resultSet.next()) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
                 duplicate = true;
             }
         } catch (SQLException e) {
