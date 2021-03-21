@@ -163,7 +163,7 @@ public class ProductDaoImpl implements ProductDao {
     public List<Product> searchByCategory(int cate_id) {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.id AS c_id " +
-                " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE c_id = ? ";
+                " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE category.id = ? ";
         try (
                 Connection con = JDBCConnection.getJDBCConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -206,6 +206,65 @@ public class ProductDaoImpl implements ProductDao {
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("image"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+
+    @Override
+    public List<Product> searchByName(String product_name_keyword, int cate_id) {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT Product.id, Product.name AS p_name, Product.price, Product.des, Product.image, category.id AS c_id " +
+                " FROM Product INNER JOIN Category ON product.cate_id = category.id WHERE product.cate_id = ? and Product.name LIKE ? ";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+
+        ){
+            ps.setInt(1,cate_id);
+            ps.setString(2, "%" + product_name_keyword + "%");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("c_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("p_name"));
+                product.setPrice(rs.getFloat("price"));
+                product.setDes(rs.getString("des"));
+                product.setImage(rs.getString("image"));
+                product.setCategory(category);
+                products.add(product);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+
+    @Override
+    public List<Product> getRandomProduct(int number) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select * from product order by rand() limit ?";
+        try (
+                Connection con = JDBCConnection.getJDBCConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+        ){
+            ps.setInt(1,number);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Category category = categoryService.get(rs.getInt("cate_id"));
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("name"));
                 product.setPrice(rs.getFloat("price"));
                 product.setDes(rs.getString("des"));
                 product.setImage(rs.getString("image"));
