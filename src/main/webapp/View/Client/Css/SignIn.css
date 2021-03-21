@@ -12,7 +12,7 @@ body {
     min-height: 670px;
     position: relative;
     background: url("/View/Client/Css/file1.jpg") no-repeat center;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24);
 }
 
 .login-snip {
@@ -20,7 +20,11 @@ body {
     height: 100%;
     position: absolute;
     padding: 90px 70px 50px 70px;
+<<<<<<< HEAD
+    background: rgba(19 23 23 / 90%);
+=======
     background: rgba(19, 11, 11, 0.9)
+>>>>>>> 310ac6409af1f897da810405b49012ee59ad38cf
 }
 
 .login-snip .login,

@@ -1,10 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Website | Responsive Website Design</title>
+    <title>VASCARA</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -14,17 +15,33 @@
 <body>
 <div class="container">
     <div class="row">
-        <div style="margin-top: 20px" class="col-md-3"><a href="/View/Client/View/Index.jsp">
-            <img src="/View/Client/Css/logo.png" alt="Logo" title="Logo">
+        <div style="margin-top: 20px" class="col-md-3"><a href="/user?ac=home">
+            <img href="/user?ac=home" src="/View/Client/Css/logo.png" alt="Logo" title="Logo">
         </a></div>
         <div style="margin-top: 30px" class="col-md-5 text-center"><div style="width: 70% ;float: right" class="input-group rounded">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                    aria-describedby="search-addon" />
         </div>
         </div>
-        <div class="col-md-1"></div>
-        <div style="margin-top: 46px " class="col-md-3">
-            <a style="" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
+        <div style="margin-top: 46px " class="col-md-4">
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <div class="">
+                        <ul class="list-inline right-topbar pull-right">
+                            <li><a href="${pageContext.request.contextPath }/user?ac=login">Login & Register</a></li>
+                        </ul>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="">
+                        <ul class="list-inline right-topbar pull-right">
+                            <li><p style="color: red; font-size: 20px">Welcome ${user.getUsername()} !</p> </li>
+                            <li><a href="${pageContext.request.contextPath }/user?ac=my_account">My Account</a> | <a
+                                    href="${pageContext.request.contextPath }/user?ac=logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
     <div class="row">
@@ -36,7 +53,7 @@
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Shoes.jsp">Shoes</a>
+                            <a class="nav-link" href="ProductByCategory.jsp">Shoes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Hand Bag</a>
@@ -104,6 +121,23 @@
         <div class="col-md-6"><p style="text-align: center ; color: red  ;  font-size: 25px">NEW ARRIVAL</p></div>
         <div class="col-md-3"></div>
     </div>
+    <div class="row">
+        <c:forEach items='${requestScope["products"]}' var="product">
+            <div class="col-md-3">
+                <div class="card" style="width: 90%;">
+                    <img class="card-img-top" src="${product.getImage()}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">${product.getPrice()} vnd <br>
+                            ${product.getName()}</p>
+                        <div>
+                            <a href="user?ac=addItem&pId=${product.getId()}" class="btn cart px-auto">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+
     <div style="margin-top: 20px" class="row">
         <div class="col-md-3">
             <div class="card" style="width: 90%;">
