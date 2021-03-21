@@ -1,58 +1,58 @@
 dao/CategoryDao.java
  dao.CategoryDao
-dao/ProductDao.java
- dao.ProductDao
-service/impl/ProductServiceImpl.java
- service.impl.ProductServiceImpl
-dao/impl/ProductDaoImpl.java
- dao.impl.ProductDaoImpl
-service/CategoryService.java
- service.CategoryService
-dao/impl/CategoryDaoImpl.java
- dao.impl.CategoryDaoImpl
-service/ProductService.java
- service.ProductService
-jdbc/JDBCConnection.java
- jdbc.JDBCConnection
-service/impl/CategoryServiceImpl.java
- service.impl.CategoryServiceImpl
-model/Product.java
- model.Product
-model/Category.java
- model.Category
-service/CartItemService.java
- service.CartItemService
-controller/AdminController.java
- controller.AdminController
+dao/impl/UserDaoImpl.java
+ dao.impl.UserDaoImpl
+controller/WaitingController.java
+ controller.WaitingController
 dao/impl/CartDaoImpl.java
  dao.impl.CartDaoImpl
-service/CartService.java
- service.CartService
 model/CartItem.java
  model.CartItem
-model/Cart.java
- model.Cart
-dao/CartItemDao.java
- dao.CartItemDao
-service/impl/CartItemServiceImpl.java
- service.impl.CartItemServiceImpl
-dao/impl/CartItemDaoImpl.java
- dao.impl.CartItemDaoImpl
-service/impl/CartServiceImpl.java
- service.impl.CartServiceImpl
+dao/impl/CategoryDaoImpl.java
+ dao.impl.CategoryDaoImpl
 model/User.java
  model.User
+dao/impl/ProductDaoImpl.java
+ dao.impl.ProductDaoImpl
 dao/UserDao.java
  dao.UserDao
 dao/CartDao.java
  dao.CartDao
 service/UserService.java
  service.UserService
-dao/impl/UserDaoImpl.java
- dao.impl.UserDaoImpl
-service/impl/UserServiceImpl.java
- service.impl.UserServiceImpl
-controller/WaitingController.java
- controller.WaitingController
+model/Category.java
+ model.Category
+dao/ProductDao.java
+ dao.ProductDao
+service/ProductService.java
+ service.ProductService
+service/CartItemService.java
+ service.CartItemService
+jdbc/JDBCConnection.java
+ jdbc.JDBCConnection
+service/impl/CategoryServiceImpl.java
+ service.impl.CategoryServiceImpl
+service/CartService.java
+ service.CartService
+model/Cart.java
+ model.Cart
+dao/CartItemDao.java
+ dao.CartItemDao
+service/impl/CartItemServiceImpl.java
+ service.impl.CartItemServiceImpl
 controller/ClientController.java
  controller.ClientController
+service/impl/CartServiceImpl.java
+ service.impl.CartServiceImpl
+service/impl/ProductServiceImpl.java
+ service.impl.ProductServiceImpl
+service/impl/UserServiceImpl.java
+ service.impl.UserServiceImpl
+model/Product.java
+ model.Product
+controller/AdminController.java
+ controller.AdminController
+service/CategoryService.java
+ service.CategoryService
+dao/impl/CartItemDaoImpl.java
+ dao.impl.CartItemDaoImpl

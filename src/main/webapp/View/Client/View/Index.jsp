@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,9 +51,9 @@
                 <c:otherwise>
                     <div class="">
                         <ul class="list-inline right-topbar pull-right">
+
                             <li><p style="color: red; font-size: 20px">Welcome ${user.getUsername()} !</p></li>
-                            <li><a href="/user?ac=my_account&username=${user.getUsername()}">My Account</a> | <a
-                                    href="${pageContext.request.contextPath }/user?ac=logout">Logout</a></li>
+                            <li><a href="/user?ac=my_account&username=${user.getUsername()}">My Account</a> | <a href="${pageContext.request.contextPath }/user?ac=logout">Logout</a></li>
                         </ul>
                     </div>
                 </c:otherwise>
@@ -148,6 +149,23 @@
         <div class="col-md-6"><p style="text-align: center ; color: red  ;  font-size: 25px">NEW ARRIVAL</p></div>
         <div class="col-md-3"></div>
     </div>
+    <div class="row">
+        <c:forEach items='${requestScope["products"]}' var="product">
+            <div class="col-md-3">
+                <div class="card" style="width: 90%;">
+                    <img class="card-img-top" src="${product.getImage()}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">${product.getPrice()} vnd <br>
+                            ${product.getName()}</p>
+                        <div>
+                            <a href="user?ac=addItem&pId=${product.getId()}" class="btn cart px-auto">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+
     <div style="margin-top: 20px" class="row">
         <c:forEach items="${requestScope['productList']}" var="p">
             <div style="margin-bottom: 45px" class="col-md-3">

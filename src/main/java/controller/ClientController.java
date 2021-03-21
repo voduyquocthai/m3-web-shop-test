@@ -199,6 +199,7 @@ public class ClientController extends HttpServlet {
             case "search_product_by_name":
                 searchProductByName(request, response);
                 break;
+
         }
     }
 
@@ -277,6 +278,7 @@ public class ClientController extends HttpServlet {
         request.setAttribute("productList",productList);
         request.setAttribute("categories",categories);
         request.getRequestDispatcher("View/Client/View/Index.jsp").forward(request,response);
+
     }
 
 
