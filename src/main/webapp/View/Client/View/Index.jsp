@@ -36,11 +36,9 @@
                         </span>
                     </div>
                 </form>
-
-
             </div>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col-md-1"><a href="/user?ac=my_account&username=${user.getUsername()}"><c:out value="${user.getUsername()}"/></a></div>
         <div class="col-md-3">
             <a style="" class="btn btn-secondary" href="/View/Client/View/SignIn.jsp">Registration/Log in</a>
         </div>

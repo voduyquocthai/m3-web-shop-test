@@ -119,10 +119,10 @@ public class ClientController extends HttpServlet {
     }
 
     private void viewInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        User user = userService.get(id);
+        String username = request.getParameter("username");
+        User user = userService.get(username);
         request.setAttribute("user", user);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Client/View/MyAccount.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -203,9 +203,9 @@ public class ClientController extends HttpServlet {
         user.setPassword(request.getParameter("password"));
         user.setEmail(request.getParameter("email"));
         user.setRoleId(Integer.parseInt(request.getParameter("role_id")));
-        user.setAvatar(request.getParameter("avatar"));
+        user.setAvatar("View/Img/"+request.getParameter("avatar"));
         userService.edit(user);
-        response.sendRedirect("");
+        response.sendRedirect("/user?ac=my_account");
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -215,16 +215,17 @@ public class ClientController extends HttpServlet {
         if (username.isEmpty() || pass.isEmpty()) {
             message = "Username and password can't be empty!";
             request.setAttribute("message", message);
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("/user?ac=login").forward(request, response);
         }
 
         User user = userService.login(username, pass);
         if (user != null) {
-            response.sendRedirect("");
+            request.setAttribute("user",user);
+            request.getRequestDispatcher("/user").forward(request,response);
         } else {
             message = "Username or password isn't correct";
             request.setAttribute("message", message);
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("/user?ac=login").forward(request, response);
         }
     }
 
@@ -232,6 +233,8 @@ public class ClientController extends HttpServlet {
         List<Product> productList = productService.getAll();
         List<Product> products = productService.getRandomProduct(4);
         List<Category> categories = categoryService.getAll();
+        User user = userService.get(1);
+        request.setAttribute("user",user);
         request.setAttribute("products",products);
         request.setAttribute("productList",productList);
         request.setAttribute("categories",categories);
