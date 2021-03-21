@@ -1,5 +1,28 @@
 dao/CategoryDao.java
  dao.CategoryDao
+<<<<<<< HEAD
+=======
+dao/impl/UserDaoImpl.java
+ dao.impl.UserDaoImpl
+dao/impl/CartDaoImpl.java
+ dao.impl.CartDaoImpl
+model/CartItem.java
+ model.CartItem
+dao/impl/CategoryDaoImpl.java
+ dao.impl.CategoryDaoImpl
+model/User.java
+ model.User
+dao/impl/ProductDaoImpl.java
+ dao.impl.ProductDaoImpl
+dao/UserDao.java
+ dao.UserDao
+service/UserService.java
+ service.UserService
+dao/CartDao.java
+ dao.CartDao
+model/Category.java
+ model.Category
+>>>>>>> 310ac6409af1f897da810405b49012ee59ad38cf
 dao/ProductDao.java
  dao.ProductDao
 service/impl/ProductServiceImpl.java
@@ -40,6 +63,7 @@ dao/impl/CartItemDaoImpl.java
  dao.impl.CartItemDaoImpl
 service/impl/CartServiceImpl.java
  service.impl.CartServiceImpl
+<<<<<<< HEAD
 model/User.java
  model.User
 dao/UserDao.java
@@ -56,3 +80,17 @@ controller/WaitingController.java
  controller.WaitingController
 controller/ClientController.java
  controller.ClientController
+=======
+service/impl/ProductServiceImpl.java
+ service.impl.ProductServiceImpl
+service/impl/UserServiceImpl.java
+ service.impl.UserServiceImpl
+model/Product.java
+ model.Product
+controller/AdminController.java
+ controller.AdminController
+service/CategoryService.java
+ service.CategoryService
+dao/impl/CartItemDaoImpl.java
+ dao.impl.CartItemDaoImpl
+>>>>>>> 310ac6409af1f897da810405b49012ee59ad38cf
